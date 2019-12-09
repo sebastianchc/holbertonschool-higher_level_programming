@@ -1,0 +1,1 @@
+In this repository we will find some of the basic basics of Python.
