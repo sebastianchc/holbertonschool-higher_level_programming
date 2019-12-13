@@ -12,4 +12,4 @@ if __name__ == "__main__":
         print("{} arguments:" .format(argc))
         for arguments in range(1, len(argv)):
             print("{}: {}" .format(n, argv[n]))
-            n +=1
+            n += 1
