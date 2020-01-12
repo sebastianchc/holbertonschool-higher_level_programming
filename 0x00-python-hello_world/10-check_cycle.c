@@ -1,27 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * check_cycle - Function in C that checks if a lisint_t list has a cycle in it.
- * @list: head of listint_t list
+ * check_cycle - Check if a singly linked list has a cycle in it.
+ * @list: Pointer to list.
  *
- * Return: 0 if there is no cycle, 1 if there is a cycle.
+ * Return: 0 there is no cycle, 1 otherwise.
  */
 
 int check_cycle(listint_t *list)
 {
-	listint_t *temp;
+	listint_t *current;
+	listint_t *tmp;
 
-	if (!list)
+	current = list;
+	tmp = list;
+	while (tmp)
 	{
-		return (0);
-	}
-	while (list)
-	{
-		temp = list;
-		list = (*list).next;
-		if (temp <= list)
+		current = current->next;
+		tmp = tmp->next;
+		tmp = tmp->next;
+		if (tmp == current)
 		{
 			return (1);
 		}
