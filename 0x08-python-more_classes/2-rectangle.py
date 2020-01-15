@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 class Rectangle:
 
+    def __init__(self, width=0, height=0):
+        self.height = height
+        self.width = width
+
     @property
     def width(self):
         return self.__width
@@ -18,7 +22,7 @@ class Rectangle:
     def height(self):
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
         if type(value) is not int:
             raise TypeError("height must be an integer")
