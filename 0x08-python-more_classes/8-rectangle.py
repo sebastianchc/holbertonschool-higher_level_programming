@@ -2,7 +2,7 @@
 class Rectangle:
 
     number_of_instances = 0
-    print_symbol = "#"
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         self.height = height
@@ -15,10 +15,10 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("width must be >= 0")
+        elif type(value) is not int:
+            raise TypeError("width must be an integer")
         else:
             self.__width = value
 
@@ -46,11 +46,11 @@ class Rectangle:
     def __str__(self):
         string = ""
         if not self.width or not self.height:
-            return string
+            return square
         else:
             for row in range(self.height):
                 string += str(self.print_symbol) * self.width
-                if row != self.height - 1:
+                if row is not self.height - 1:
                     string += "\n"
             return string
 
@@ -61,10 +61,11 @@ class Rectangle:
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if type(rect_1) is not Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
-        elif type(rect_1) is not Rectangle:
+        elif type(rect_2) is not Rectangle:
             raise TypeError("rect_2 must be an instance of Rectangle")
         elif rect_1.area() >= rect_2.area():
             return rect_1
