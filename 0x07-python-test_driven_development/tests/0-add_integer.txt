@@ -12,14 +12,14 @@ Import the function
 
 	>>> add_integer = __import__('0-add_integer').add_integer
 
-Integer Cases
+Integer
 =================================================================
 	>>> add_integer(4, 13)
 	17
 	>>> add_integer(-1, -5)
 	-6
 
-Float Cases
+Float
 =================================================================
         >>> add_integer(74.3, -10.5)
         64
