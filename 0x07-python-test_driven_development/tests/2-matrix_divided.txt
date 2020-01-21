@@ -1,0 +1,88 @@
+================================
+Doctest for add_integer funtion
+================================
+
+''matrix_divided(matrix, div)'' divide all elements of
+a matrix. Matrix must be a list of integers or floats
+otherwise a TypeError exception is raised. Each row of
+the matrix must be the same size.
+
+Import the function
+==========================================================================
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Standard
+==========================================================================
+	matrix = [[1, 2, 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+	>>> matrix_divided(matrix, -2)
+	[[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0]]
+	>>> matrix_divided(matrix, 6.4)
+	[[0.16, 0.31, 0.47], [0.62, 0.78, 0.94]]
+
+Division by String
+=================================================================
+	matrix = [[1, 2, 3], [4, 5, 6]]
+        >>> matrix_divided(matrix, "Python")
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+Division by Zero
+=================================================================
+	matrix = [[1, 2, 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, 0)
+	Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
+
+Error Matrix
+=================================================================
+	matrix = [[1, 2, "Awesome"], [4, 5, 6]]
+        >>> matrix_divided(matrix, 3)
+        Traceback (most recent call last):
+        ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Different Size Row
+=================================================================
+	matrix = [[1, 2], [4, 5, 6]]
+	>>> matrix_divided(matrix, 3)
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+Infinity float
+=================================================================
+	matrix = [[1, 2, 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, float('inf'))
+	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Infinity Matrix
+=================================================================
+	matrix = [[1, float('inf'), 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, 3)
+	[[0.33, inf, 1.0], [1.33, 1.67, 2.0]]
+
+All Infinity
+=================================================================
+	matrix = [[1, float('inf'), 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, float('inf'))
+	[[0.0, nan, 0.0], [0.0, 0.0, 0.0]]
+
+One Argument
+=================================================================
+        matrix = [[1, 2, 3], [4, 5, 6]]
+        >>> matrix_divided(matrix)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+One Argument
+=================================================================
+        >>> matrix_divided()
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
