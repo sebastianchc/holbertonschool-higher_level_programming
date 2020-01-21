@@ -3,6 +3,7 @@ def matrix_divided(matrix, div):
     """function that divides all elements of a matrix.
     Matrix must be a list of list of integers or floats,
     otherwise a TypeError is raised"""
+    message = "matrix must be a matrix (list of lists) of integers/floats"
     new_matrix = []
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
@@ -15,8 +16,7 @@ def matrix_divided(matrix, div):
         new_list = []
         for integer in row:
             if type(integer) not in [int, float]:
-                raise TypeError("matrix must be a matrix (list of lists)\
-                of integers/floats")
+                raise TypeError(message)
             try:
                 division = integer / div
                 result = round(division, 2)
