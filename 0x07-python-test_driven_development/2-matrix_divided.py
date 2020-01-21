@@ -15,7 +15,8 @@ def matrix_divided(matrix, div):
         new_list = []
         for integer in row:
             if type(integer) not in [int, float]:
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError("matrix must be a matrix (list of lists)\
+                of integers/floats")
             try:
                 division = integer / div
                 result = round(division, 2)
