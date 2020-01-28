@@ -70,6 +70,20 @@ class Rectangle(Base):
         for row in range(self.height):
             print("{}{}".format(" " * self.x, "#" * self.width))
 
+    def update(self, *args):
+        if len(args) > 0:
+            for arg in range(len(args)):
+                if arg == 0:
+                    self.id = args[arg]
+                if arg == 1:
+                    self.width = args[arg]
+                if arg == 2:
+                    self.height = args[arg]
+                if arg == 3:
+                    self.x = args[arg]
+                if arg == 4:
+                    self.y = args[arg]
+
     def __str__(self):
         string = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
         return string.format(self.id, self.x, self.y, self.width, self.height)
