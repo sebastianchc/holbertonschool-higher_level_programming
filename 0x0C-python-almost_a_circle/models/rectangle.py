@@ -70,7 +70,7 @@ class Rectangle(Base):
         for row in range(self.height):
             print("{}{}".format(" " * self.x, "#" * self.width))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         if len(args) > 0:
             for arg in range(len(args)):
                 if arg == 0:
@@ -83,6 +83,18 @@ class Rectangle(Base):
                     self.x = args[arg]
                 if arg == 4:
                     self.y = args[arg]
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "width":
+                    self.width = value
+                if key == "height":
+                    self.height = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
 
     def __str__(self):
         string = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
