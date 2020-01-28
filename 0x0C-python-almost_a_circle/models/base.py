@@ -1,12 +1,15 @@
 #!/usr/bin/python3
+""" Base class """
 import json
 
 
 class Base:
+    """ Base class """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """ __init__ method """
         if id:
             self.id = id
         else:
@@ -15,6 +18,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ Dictionary to a JSON static method """
         if not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
