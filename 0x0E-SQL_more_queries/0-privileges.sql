@@ -1,4 +1,3 @@
--- Show all the grants of a user
--- User 1 and 2
+-- List all privileges of a user
 SHOW GRANTS FOR user_0d_1@localhost;
 SHOW GRANTS FOR user_0d_2@localhost;
