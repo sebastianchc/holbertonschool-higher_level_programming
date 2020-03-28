@@ -5,17 +5,14 @@ from sys import argv
 import MySQLdb
 
 if __name__ == "__main__":
-    username = argv[1]
-    password = argv[2]
-    dataname = argv[3]
     database = MySQLdb.connect(host="localhost",
                                port=3306,
-                               user=username,
-                               passwd=password,
-                               db=dataname)
+                               user=argv[1],
+                               passwd=argv[2],
+                               db=argv[3])
     cursor = database.cursor()
-    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%'\
-    ORDER BY id ASC;")
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
+    cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
