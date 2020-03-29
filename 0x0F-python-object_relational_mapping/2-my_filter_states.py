@@ -5,18 +5,15 @@ from sys import argv
 import MySQLdb
 
 if __name__ == "__main__":
-    username = argv[1]
-    password = argv[2]
-    dataname = argv[3]
-    argument = argv[4]
     database = MySQLdb.connect(host="localhost",
                                port=3306,
-                               user=username,
-                               passwd=password,
-                               db=dataname)
+                               user=argv[1],
+                               passwd=argv[2],
+                               db=argv[3])
     cursor = database.cursor()
-    cursor.execute("SELECT id, name FROM states WHERE name='{}'\
-    ORDER BY id ASC;".format(argument))
+    query = "SELECT * FROM states WHERE name='{}' ORDER BY id ASC;"
+    query = query.format(argv[4])
+    cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
