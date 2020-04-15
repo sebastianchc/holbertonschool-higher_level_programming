@@ -4,5 +4,5 @@ from sys import argv
 
 
 if __name__ == "__main__":
-   response = get(argv[1])
-   print(response.headers.get("X-Request-Id"))
+    response = get(argv[1])
+    print(response.headers.get("X-Request-Id"))
