@@ -5,6 +5,9 @@ from sys import argv
 
 if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
+    if argv == 1:
+        print("No result")
+        return
     try:
         request = post(url, {"q": argv[1]})
         js = request.json()
