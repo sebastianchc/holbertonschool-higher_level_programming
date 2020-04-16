@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-from requests import get
-from requests.auth import HTTPBasicAuth
+from requests import get, auth
 from sys import argv
 
 
