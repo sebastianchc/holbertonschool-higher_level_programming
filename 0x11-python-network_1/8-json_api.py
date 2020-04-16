@@ -5,11 +5,12 @@ from sys import argv
 
 if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
-    if argv == 1:
-        print("No result")
-        return
+    if len(argv) == 1:
+        data = {"q": ""}
+    else:
+        data = {"q": argv[1]}
     try:
-        request = post(url, {"q": argv[1]})
+        request = post(url, data)
         js = request.json()
         if not js:
             print("No result")
