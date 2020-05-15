@@ -8,9 +8,9 @@ request(process.argv[2], function (err, res, cont) {
     for (const movie of list) {
       const characters = movie.characters;
       for (const character of characters) {
-	if (character.search('18') !== -1) {
-	  count++;
-	}
+        if (character.search('18') !== -1) {
+          count++;
+        }
       }
     }
     console.log(count);
